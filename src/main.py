@@ -33,12 +33,12 @@ st.subheader("SHAP Force Plot")
 shap.force_plot(shap_values[0].base_values, shap_values[0].values, input_features[0], feature_names=[f"Feature {i + 1}" for i in range(20)])"
 """
 
+import sklearn
 import streamlit as st
 
 import pandas as pd
 import numpy as np
 
-import sklearn
 
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
