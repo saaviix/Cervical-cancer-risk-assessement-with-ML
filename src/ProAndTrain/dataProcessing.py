@@ -4,12 +4,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("risk_factors_cervical_cancer.csv")
+def process_data(df : pd.DataFrame):
+    df.drop('STDs: Time since last diagnosis', axis=1, inplace=True)
+    df.drop('STDs: Time since first diagnosis', axis=1, inplace=True)
 
+    df = df.loc[:, ~((df.columns.str.startswith('STDs:')) & (df.columns != 'STDs: Number of diagnosis'))]
 
-df.drop('STDs: Time since last diagnosis', axis=1, inplace=True)
-df.drop('STDs: Time since first diagnosis', axis=1, inplace=True)
+    df = df.apply(pd.to_numeric, errors='coerce')
 
-df = df.loc[:, ~((df.columns.str.startswith('STDs:')) & (df.columns != 'STDs: Number of diagnosis'))]
-
-df = df.apply(pd.to_numeric, errors='coerce')
+    return df
