@@ -1,4 +1,5 @@
 streamlit
+shap
 scikit-learn
 pandas
 numpy
@@ -9,3 +10,4 @@ plotly
 joblib
 xgboost
 lightgbm
+catboost
