@@ -11,3 +11,4 @@ joblib
 xgboost
 lightgbm
 catboost
+imblearn
