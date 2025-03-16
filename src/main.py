@@ -45,15 +45,15 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report
 
-from ProAndTrain import dataProcessing
-from ProAndTrain import model
+from ProAndTrain.dataProcessing import *
+from ProAndTrain.model import MLModel
 
 import shap
 
 
 df = pd.read_csv("data/risk_factors_cervical_cancer.csv")
 
-df = dataProcessing.process_data(df)
+df = process_data(df)
 
 X = np.array(df.drop(columns = ['Biopsy'])).astype('float32')
 y = np.array(df['Biopsy']).astype('float32')
@@ -89,7 +89,7 @@ st.title("Cervical Cancer Risk Prediction with SHAP Explanations")
 model_choice = st.selectbox("Select Model", options=['Random Forest', 'SVM', 'XGBoost', 'CatBoost'])
 
 # Initialize the selected model
-Model = model.MLModel(model_choice)
+Model = MLModel(model_choice)
 Model.train(X_train, y_train)
 
 # Feature Inputs (20 float inputs for the features)
@@ -97,11 +97,11 @@ input_features = [st.number_input(f'Feature {i + 1}', min_value=-100.0, max_valu
 input_features = np.array(input_features).reshape(1, -1)  # Reshape to make it a single row input
 
 # Predict the result (output: bool)
-prediction = model.predict(input_features)
+prediction = Model.predict(input_features)
 st.write(f"Prediction (Biopsy): {'Positive' if prediction[0] == 1 else 'Negative'}")
 
 # SHAP Explanations
-explainer = shap.Explainer(model.get_model(), X_train)
+explainer = shap.Explainer(Model.get_model(), X_train)
 shap_values = explainer(input_features)
 
 # Plot SHAP summary (showing feature importance)
