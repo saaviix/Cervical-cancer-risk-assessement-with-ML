@@ -1,0 +1,43 @@
+name: Streamlit CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Trigger the pipeline on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull request to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # You can use a different OS if needed
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Specify the Python version to use
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run tests (optional)
+      - name: Run tests
+        run: |
+          # If you have tests, you can add them here, for example:
+          pytest tests/
+
+      # Step 5: Deploy to Streamlit Cloud or Heroku (optional, for CD)
+      - name: Deploy to Streamlit Cloud
+        run: |
+          curl -fsSL https://streamlit.io/deploy.sh | bash
+        env:
+          STREAMLIT_API_KEY: ${{ secrets.STREAMLIT_API_KEY }}
