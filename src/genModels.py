@@ -7,16 +7,17 @@ from ProAndTrain import dataProcessing, model
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 
+
 from imblearn.over_sampling import SMOTE
 
 
 import joblib
 
-
+print('f')
 df = pd.read_csv("../data/risk_factors_cervical_cancer.csv")
 df = dataProcessing.process_data(df)
 
-ChoosenModel = "xgboost"
+ChoosenModel = "catboost"
 Model = model.MLModel(ChoosenModel)
 
 X = np.array(df.drop(columns = ['Biopsy'])).astype('float32')

@@ -1,0 +1,62 @@
+# Doxygen configuration file for Python project
+
+#---------------------------------------------------------------------------#
+# General configuration options
+#---------------------------------------------------------------------------#
+
+# The project name. You can set it to the name of your project.
+PROJECT_NAME           = "Cervical cancer risk assessement with ML"
+
+# The version of the project. You can leave it as is or set a version.
+PROJECT_NUMBER         = "1.0"
+
+# The output directory for the generated documentation.
+OUTPUT_DIRECTORY      = "docs"
+
+# The format of the output. You can set this to HTML, LaTeX, etc.
+GENERATE_HTML          = YES
+GENERATE_LATEX          = NO
+# Set to YES to generate HTML documentation.
+HTML_OUTPUT            = "html"
+
+#---------------------------------------------------------------------------#
+# Input & file patterns
+#---------------------------------------------------------------------------#
+
+# The main directory of your project (where your Python files are located).
+INPUT                  = src/
+
+# The file patterns for the files to be processed. We want to process Python files.
+FILE_PATTERNS          = *.py
+
+# Exclude directories (like tests, build, etc.). You can modify as needed.
+EXCLUDE                = build,tests
+
+#---------------------------------------------------------------------------#
+# Documentation generation options
+#---------------------------------------------------------------------------#
+
+# If set to YES, Doxygen will attempt to extract documentation from all files.
+EXTRACT_ALL            = YES
+
+# If set to YES, Doxygen will extract documentation even from undocumented functions.
+EXTRACT_PRIVATE        = YES
+
+# If set to YES, Doxygen will extract documentation from private members.
+EXTRACT_STATIC         = YES
+
+# Set to YES to include a table of contents in the generated documentation.
+SHOW_FILES             = YES
+
+# Set this to YES to include the header section in all generated pages.
+SHOW_INCLUDE_FILES     = YES
+
+#---------------------------------------------------------------------------#
+# Comment styles
+#---------------------------------------------------------------------------#
+
+# The style of comments used for documenting the code.
+# For Python, Doxygen supports the standard docstring format.
+# Use the comment style Python developers typically use.
+JAVADOC_AUTOBRIEF      = YES
+INLINE_INHERITED_MEMB  = YES
