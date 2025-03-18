@@ -32,7 +32,7 @@ jobs:
       # Step 4: Run tests (optional)
       - name: Run tests
         run: |
-          streamlit run src/main.py
+          python src/genModels.py
 
       # Step 5: Deploy to Streamlit Cloud or Heroku (optional, for CD)
       - name: Deploy to Streamlit Cloud
