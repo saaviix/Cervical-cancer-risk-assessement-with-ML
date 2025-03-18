@@ -1,7 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 import xgboost as xgb
-#from catboost import CatBoostClassifier
+from catboost import CatBoostClassifier
 
 
 class MLModel:
@@ -25,7 +25,7 @@ class MLModel:
         elif self.model_name == 'svm':
             return SVC()
         elif self.model_name == 'catboost':
-            return# CatBoostClassifier(silent=True)
+            return CatBoostClassifier(silent=True)
         else:
             raise ValueError(f"Model '{self.model_name}' is not recognized. Available options: 'random_forest', 'xgboost', 'svm', 'catboost'.")
 

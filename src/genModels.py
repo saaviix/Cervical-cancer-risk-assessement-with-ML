@@ -10,14 +10,16 @@ from sklearn.model_selection import train_test_split
 
 from imblearn.over_sampling import SMOTE
 
+import os
 
 import joblib
 
-print('f')
+print(os.getcwd())
+
 df = pd.read_csv("../data/risk_factors_cervical_cancer.csv")
 df = dataProcessing.process_data(df)
 
-ChoosenModel = "catboost"
+ChoosenModel = "xgboost"
 Model = model.MLModel(ChoosenModel)
 
 X = np.array(df.drop(columns = ['Biopsy'])).astype('float32')

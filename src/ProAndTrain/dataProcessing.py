@@ -59,5 +59,7 @@ def process_data(df : pd.DataFrame):
     df['Smokes'] = df.groupby('Age')['Smokes'].transform(fill_with_mode)
 
     df.loc[df['Num of pregnancies'].isna(), 'Num of pregnancies'] = 0
+
+    df.to_csv('../data/output.csv', index=False)  # index=False to exclude the index from being saved
     
     return df

@@ -1,0 +1,22 @@
+Feature,Mean_Absolute_SHAP_Value,Relative_Importance
+Schiller,4.305116,46.463074
+Num of pregnancies,1.0849868,11.709746
+Number of sexual partners,0.87141687,9.404788
+First sexual intercourse,0.54030687,5.831275
+Hormonal Contraceptives (years),0.46337077,5.0009403
+Hinselmann,0.4230247,4.5655046
+Hormonal Contraceptives,0.41378272,4.46576
+Citology,0.35049397,3.7827148
+IUD,0.2174368,2.346692
+Age,0.16952011,1.8295499
+Smokes (years),0.13007972,1.4038885
+Dx:CIN,0.093369775,1.0076956
+Smokes,0.06959923,0.75115144
+Dx,0.059554614,0.64274466
+IUD (years),0.05936581,0.64070696
+STDs (number),0.014247584,0.15376739
+Smokes (packs/year),0.0,0.0
+STDs,0.0,0.0
+Dx:HPV,0.0,0.0
+STDs: Number of diagnosis,0.0,0.0
+Dx:Cancer,0.0,0.0
